@@ -1,46 +1,46 @@
 <?php
 // 1.Fetch data for upcoming animes
-$upcomingApiUrl = 'https://data.mediascout.tokyo/anime/recommendations/upcoming';
+$upcomingApiUrl = 'https://data.mediascout.tokyo/anime/recommendations?q=upcoming';
 $upcomingJsonData = file_get_contents($upcomingApiUrl);
 $upcomingResponse = json_decode($upcomingJsonData, true);
 
 // 2.Fetch data for top rated animes
-$topRatedApiUrl = 'https://data.mediascout.tokyo/anime/recommendations/bypopularity';
+$topRatedApiUrl = 'https://data.mediascout.tokyo/anime/recommendations?q=bypopularity';
 $topRatedJsonData = file_get_contents($topRatedApiUrl); 
 $topRatedResponse = json_decode($topRatedJsonData, true);
 
 // 3.Fetch data for top airing animes
-$topAiringApiUrl = 'https://data.mediascout.tokyo/anime/recommendations/airing';
-$topAiringJsonData = file_get_contents($topAiringApiUrl); 
+$topAiringApiUrl = 'https://data.mediascout.tokyo/anime/recommendations?q=airing';
+$topAiringJsonData = file_get_contents($topAiringApiUrl);
 $topAiringResponse = json_decode($topAiringJsonData, true);
 
 // 4.Fetch data for top ova animes
-$topOvaApiUrl = 'https://data.mediascout.tokyo/anime/recommendations/ova';
+$topOvaApiUrl = 'https://data.mediascout.tokyo/anime/recommendations?q=ova';
 $topOvaJsonData = file_get_contents($topOvaApiUrl); 
 $topOvaResponse = json_decode($topOvaJsonData, true);
 
 // 5.Fetch data for top movie animes
-$topMovieApiUrl = 'https://data.mediascout.tokyo/anime/recommendations/movie';
+$topMovieApiUrl = 'https://data.mediascout.tokyo/anime/recommendations?q=movie';
 $topMovieJsonData = file_get_contents($topMovieApiUrl); 
 $topMovieResponse = json_decode($topMovieJsonData, true);
 
 // 6.Fetch data for top favorited animes
-$topFavoriteApiUrl = 'https://data.mediascout.tokyo/anime/recommendations/favorite';
+$topFavoriteApiUrl = 'https://data.mediascout.tokyo/anime/recommendations?q=favorite';
 $topFavoriteJsonData = file_get_contents($topFavoriteApiUrl); 
 $topFavoriteResponse = json_decode($topFavoriteJsonData, true);
 
 // 7.Fetch data for top series animes
-$topSeriesApiUrl = 'https://data.mediascout.tokyo/anime/recommendations/all';
+$topSeriesApiUrl = 'https://data.mediascout.tokyo/anime/recommendations?q=all';
 $topSeriesJsonData = file_get_contents($topSeriesApiUrl); 
 $topSeriesResponse = json_decode($topSeriesJsonData, true);
 
 // 8.Fetch data for top special animes
-$topSpecialApiUrl = 'https://data.mediascout.tokyo/anime/recommendations/special';
+$topSpecialApiUrl = 'https://data.mediascout.tokyo/anime/recommendations?q=special';
 $topSpecialJsonData = file_get_contents($topSpecialApiUrl); 
 $topSpecialResponse = json_decode($topSpecialJsonData, true);
 
 // 9.Fetch data for top TV animes
-$topTVApiUrl = 'https://data.mediascout.tokyo/anime/recommendations/tv';
+$topTVApiUrl = 'https://data.mediascout.tokyo/anime/recommendations?q=tv';
 $topTVJsonData = file_get_contents($topTVApiUrl); 
 $topTVResponse = json_decode($topTVJsonData, true);
 
@@ -107,7 +107,7 @@ function renderCarousel($data, $title, $link, $className) {
             <button class="category-button" data-category="top-airing">Top Airing Anime</button>
             <button class="category-button" data-category="top-tv">Top Anime TV Series</button>
             <button class="category-button" data-category="top-ova">Top Anime OVA Series</button>
-            <button class="category-button" data-category="top-movies">Top Anime Movies</button>
+            <button class="category-button" data-category="top-movie">Top Anime Movies</button>
             <button class="category-button" data-category="top-special">Top Anime Specials</button>
             <button class="category-button" data-category="top-favorited">Top Favorited Anime</button>
         </div>

@@ -18,19 +18,21 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         const offset = (page - 1) * itemsPerPage; // Calculate offset
-        fetch(`https://data.mediascout.tokyo/anime/recommendations/${currentCategory}?limit=${itemsPerPage}&offset=${offset}`)
-            .then(response => response.json())
-            .then(data => {
-                if (data.error) {
-                    console.error('Error fetching data:', data.error);
-                } else {
-                    displayAnimeList(data);
-                    createPagination(page);
-                }
-            })
-            .catch(error => {
-                console.error('Error fetching API:', error);
-            });
+        fetch(`https://data.mediascout.tokyo/anime/recommendations?q=${currentCategory}&limit=${itemsPerPage}&offset=${offset}`)
+        .then(response => response.json())
+        .then(data => {
+        console.log(data); // Log the response to inspect it
+        if (data.error) {
+            console.error('Error fetching data:', data.error);
+        } else {
+            displayAnimeList(data);
+            createPagination(page);
+        }
+        })
+    .catch(error => {
+        console.error('Error fetching API:', error);
+    });
+
     }
 
     // Function to display anime list
